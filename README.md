@@ -1,37 +1,53 @@
 # Hamburger
 
-Hamburger is designed to easily transfer data from one SQL database to another
-using JSON and active record.  By dumping the data to JSON the data remains
-database agnostic to be uploaded later.
+Hamburger aims at being a database agnostic way of backing up your users data
+be it for switching from one database server to another or for simply just
+backing up your data.
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'hamburger'
-
-And then execute:
-
-    $ bundle
-
+Hamburger works by creating a file in the root of your application called
+database_dump.json which will be used when reloading your database.
 
 ## Usage
 
-_Saving Data:_
+Backing up your database:
 
-1.  rake db:schema:dump
-2.  rake hamburger:dump
-3.  If any models are off from what they may be in console write them to hamburger_model.txt as a hash.  For example Paper Trail's Version would be the following hash {version: "PaperTrail::Version"}
+***Important:*** Hamburger does not back up your databases's schema or does it
+load the schema so before starting with hamburger make sure you run "rake db:schema:dump" and "rake db:schema:load" for your respective operations.
 
-_Restoring Data:_
-1. rake db:schema:load
-2. rake hamburger:load
-3. You're done.
 
-## Contributing
+```sh
+rake hamburger:dump
+```
 
-1. Fork it ( https://github.com/plowdawg/hamburger/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+Loading the data to your database:
+
+```sh
+rake hamburger:load
+```
+
+## License
+
+This is free to use under the MIT license reading as follows:
+
+The MIT License (MIT)
+
+Copyright (c) 2014 Travis Pessetto
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
