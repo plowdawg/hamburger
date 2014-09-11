@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Hamburger::VERSION
   spec.authors       = ["Travis Pessetto"]
   spec.email         = ["travis@pessetto.com"]
-  spec.summary       = %q{Dumps all sql data to json}
-  spec.description   = %q{Dumps all sql data to json}
-  spec.homepage      = ""
+  spec.summary       = %q{Dumps all sql data to JSON for easy migration of DB}
+  spec.description   = %q{Dumps all sql data to JSON for DB agnostic data storage}
+  spec.homepage      = "https://helpsheets.co"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

@@ -8,7 +8,7 @@ namespace :hamburger do
 		Rails.application.eager_load!
 		ActiveRecord::Base.descendants.each do |record|
 			record.all.each do |data|
-				file_handle.write(data.to_json)
+				file_handle.write(data.to_backupable_json)
 				file_handle.write("\n\r");
 			end
 			file_handle.write("\n\r")
